@@ -1,0 +1,17 @@
+from struct import * 
+
+
+def encode(motion):
+	return unpack('>i', pack('>f', motion))[0]
+
+def decode(enc):
+	return unpack('>f', pack('>i',enc))
+
+#motion = -0.5
+motion = 1009342213
+
+yaw = decode(motion)
+
+print("ref=asdfa,"+ str(yaw)+",asfhkasdf")
+
+

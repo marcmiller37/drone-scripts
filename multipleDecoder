@@ -1,0 +1,28 @@
+from struct import * 
+
+
+#def encode(motion):
+#	return unpack('>i', pack('>f', motion))[0]
+
+def decode(enc):
+	return unpack('>f', pack('>i',enc))
+
+decodedYaw=list()
+f=open("yaw_encoded")
+lines=f.readlines()
+
+for x in range(len(lines)):
+	decodedYaw[x]=decode(lines[x])
+
+f=open("yaw_decoded","w")
+for x in range(len(decodedYaw))
+	f.write(decodedYaw[x])
+
+
+#motion = -0.5
+#motion = 1009342213
+#yaw = decode(motion)
+
+
+
+

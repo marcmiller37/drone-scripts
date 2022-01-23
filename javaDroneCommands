@@ -1,0 +1,38 @@
+var arDrone = require('ar-drone');
+var client  = arDrone.createClient();
+
+var stop = false;
+
+while(stop !=true){
+
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('Command: ', (command) => {
+  console.log('Performing command:', command);
+  rl.close();
+});
+
+if (command == "t"){client.takeoff();}
+
+else if (command == "land"){client.land();}
+else if (command == "em"){}
+else if (command == "f"){client.front(speed);}
+else if (command == "b"){client.back(speed);}
+else if (command == "u"){client.up(speed);}
+else if (command == "d"){client.down(speed);}
+else if (command == "l"){client.right(speed);}
+else if (command == "r"){client.left(speed);}
+else if (command == "tr"){client.clockwise(speed);}
+else if (command == "tl"){client.counterClockwise(speed);}
+else if (command == "h"){client.stop();}
+else if (command == "speed"){speed = window.prompt("What value for speed? ");}
+else if (command == "end"){ stop=true;}
+else if (command == "better"){client.createRepl();}
+else{window.alert("That is not a valid command");}
+}
+
